@@ -1,6 +1,8 @@
-// import { useState } from 'react'
+import { useState } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
+
+import { ToDoContext } from './context/ToDoContext';
 
 import './App.css'
 
@@ -8,12 +10,15 @@ import './App.css'
 import ToDoForm from './components/ToDoForm'
 
 function App() {
-  // const [count, setCount] = useState(0)
+  const [toDo, setToDo] = useState(0)
+  // const ToDo = useContext(ToDoContext);
 
   return (
     <>
       <h1>ToDo App</h1>
-      <ToDoForm />
+      <ToDoContext.Provider value={toDo}>
+        <ToDoForm />
+      </ToDoContext.Provider>
     </>
   )
 }

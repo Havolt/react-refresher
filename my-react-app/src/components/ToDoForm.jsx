@@ -1,6 +1,11 @@
-import React from 'react'
+import {useContext} from 'react'
+import { ToDoContext } from '../context/ToDoContext';
 
 function Form() {
+
+  const toDo = useContext(ToDoContext);
+
+  console.log(toDo)
 
   const handleSubmit = (event) => { 
     event.preventDefault()
@@ -8,7 +13,7 @@ function Form() {
     const data = Object.fromEntries(formData.entries())
     console.log(data)
   }
-  
+
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="todo">Todo</label>
